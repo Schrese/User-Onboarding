@@ -13,9 +13,10 @@ const MyForm = ({setShowForm, values, status, errors, touched}) => {
     },[status])
 
     return (
-        <div>Hi Again
-            <Form>
+        <div>
+            <Form className = 'form-container'>
                 <Field 
+                    className = 'field'
                     type = 'text' 
                     name = 'name' 
                     placeholder = 'name'
@@ -27,6 +28,7 @@ const MyForm = ({setShowForm, values, status, errors, touched}) => {
                     )}
                     
                 <Field 
+                    className = 'field'
                     type = 'text' 
                     name = 'email' 
                     placeholder = 'email'
@@ -37,6 +39,7 @@ const MyForm = ({setShowForm, values, status, errors, touched}) => {
                         <p>{errors.email}</p>
                     )}
                 <Field 
+                    className = 'field'
                     type = 'password' 
                     name = 'password' 
                     placeholder = 'password'
@@ -60,15 +63,16 @@ const MyForm = ({setShowForm, values, status, errors, touched}) => {
                 <button type = 'submit'>Submit</button> 
 
             </Form>
+            <div className = 'container'>
                 {newUser.map(newU => (
-                    <ul key = {newU.id}>
+                    <ul className = 'userCard' key = {newU.id}>
                         <li>Name: {newU.name}</li>
                         <li>Email: {newU.email}</li>
                         <li>Password: {newU.password}</li>
                         <li>Your Soul Is Now Mine!!!!!</li>
                     </ul>
                 ))}
-
+            </div>
 
         </div>
     )
