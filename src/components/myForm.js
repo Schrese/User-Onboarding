@@ -33,6 +33,9 @@ const MyForm = ({setShowForm, values, status, errors, touched}) => {
                     // value = {values.email}
                     // onChange = {handleChange}
                     />
+                    {touched.email && errors.email && (
+                        <p>{errors.email}</p>
+                    )}
                 <Field 
                     type = 'password' 
                     name = 'password' 
@@ -40,6 +43,9 @@ const MyForm = ({setShowForm, values, status, errors, touched}) => {
                     // value = {values.password}
                     // onChange = {handleChange}
                     />
+                    {touched.password && errors.password && (
+                        <p>{errors.password}</p>
+                    )}
 
                 <label>Agree to our Terms:
                     <Field 
@@ -47,10 +53,21 @@ const MyForm = ({setShowForm, values, status, errors, touched}) => {
                         name = 'TOS' 
                         checked = {values.TOS}
                         />
+                        {touched.TOS && errors.TOS && (
+                        <p>{errors.TOS}</p>
+                    )}
                 </label>
                 <button type = 'submit'>Submit</button> 
 
             </Form>
+                {newUser.map(newU => (
+                    <ul key = {newU.id}>
+                        <li>Name: {newU.name}</li>
+                        <li>Email: {newU.email}</li>
+                        <li>Password: {newU.password}</li>
+                        <li>Your Soul Is Now Mine!!!!!</li>
+                    </ul>
+                ))}
 
 
         </div>
@@ -71,8 +88,10 @@ const FormikMyForm = withFormik({
             .catch(err => console.log('what have you done?', err.response));
     },
     validationSchema: Yup.object().shape({
-        name: Yup.string(3).required('Need a Longer Name'),
-        email: Yup.string().required()
+        name: Yup.string().min(3).required('Need a Longer Name'),
+        email: Yup.string().required(),
+        password: Yup.string().required(),
+        TOS: Yup.boolean().oneOf([true], 'You must agree to our terms!').required()
     })
     
 })(MyForm);
