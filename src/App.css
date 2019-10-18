@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 45%;
+  height: 100px;
+  width: 200px;
+}
+
+.field {
+  background: cyan;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+}
+
+.userCard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  width: 200px;
+  background: blue;
+
+}
+
+ul {
+  border: 1px dashed yellow;
+}
+
+li {
+  display: flex;
+  padding: 3%;
+  color: pink;
+}
+
+button {
+  background: magenta;
+}
